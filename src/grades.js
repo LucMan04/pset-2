@@ -1,27 +1,28 @@
 const readlineSync = require("readline-sync");
 
-const Hw_weight=0.15;
-const Qz_weight=0.35;
-const Ts_weight=0.5;
-const Assign=3;
+const Hw_weight=0.15
+const Qz_weight=0.35
+const Ts_weight=0.5
 //Homework
-const H1= readlineSync.question("Enter three homework grades."\n);
-const H2= readlineSync.question(" ");
-const H3= readlineSync.question(" ");
+const H1= parseFloat(readlineSync.question("\nEnter three homework grades.\n"), 10);
+const H2= parseFloat(readlineSync.question(""), 10);
+const H3= parseFloat(readlineSync.question(""), 10);
 
-let FinalHw= ((H1 + H2 + H3) / Assign)*Hw_weight
 //Quiz
-const Q1= readlineSync.question("Enter three quiz grades."\n);
-const Q2= readlineSync.question(" ");
-const Q3= readlineSync.question(" ");
+const Q1= parseFloat(readlineSync.question("\nEnter three quiz grades.\n"), 10);
+const Q2= parseFloat(readlineSync.question(""), 10);
+const Q3= parseFloat(readlineSync.question(""), 10);
 
-let FinalQz= ((Q1 + Q2 + Q3) / Assign)*Qz_weight;
 //Test
-const T1= readlineSync.question("Enter three test grades."\n);
-const T2= readlineSync.question(" ");
-const T3= readlineSync.question(" ");
+const T1= parseFloat(readlineSync.question("\nEnter three test grades.\n"), 10);
+const T2= parseFloat(readlineSync.question(""), 10);
+const T3= parseFloat(readlineSync.question(""), 10);
 
-let FinalTs= ((T1 + T2 + T3) / Assign)*Ts_weight;
 //Final
-let Mp_grade=(FinalHw+FinalQz+FinalTs);
-Mp_grade=Math.round(100*Mp_Grade)/(100);
+const Avg_hw = (H1+H2+H3)/3;
+const Avg_qz = (Q1+Q2+Q3)/3;
+const Avg_ts = (T1+T2+T3)/3;
+
+const Mp_grade=(Avg_hw*Hw_weight+Avg_qz*Qz_weight+Avg_ts*Ts_weight);
+const Mp_grade_final=Mp_grade.toFixed(2);
+console.log("\nYour marking period grade is "+ Mp_grade_final +"%.");
